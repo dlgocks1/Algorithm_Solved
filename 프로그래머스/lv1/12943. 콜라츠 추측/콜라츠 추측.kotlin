@@ -1,0 +1,11 @@
+class Solution {
+    fun solution(num: Int): Int {
+        var num : Long= num.toLong()
+        var cnt = 0
+        while (cnt < 500 && num > 1) {
+            cnt ++
+            num = if (num % 2 == 0L) num / 2 else num * 3 + 1
+        }
+        return if(cnt ==500) -1 else cnt
+    }
+}
