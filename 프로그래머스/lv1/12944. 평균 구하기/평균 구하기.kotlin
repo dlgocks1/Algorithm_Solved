@@ -1,0 +1,9 @@
+class Solution {
+    fun solution(arr: IntArray): Double {
+        var sum :Double = 0.0
+        arr.forEach{
+            sum += it
+        }
+        return sum/arr.size
+    }
+}
