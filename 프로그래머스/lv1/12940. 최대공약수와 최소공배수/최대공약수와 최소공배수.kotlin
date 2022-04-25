@@ -1,0 +1,9 @@
+class Solution {
+    fun solution(n: Int, m: Int): IntArray= intArrayOf(gcd(n,m),n*m/gcd(n,m))
+    
+fun gcd(n: Int, m: Int): Int = if(n<m) {
+    if (n == 0) m else gcd(n, m % n)
+}else {
+    if(m==0) n else gcd(m, n%m)
+}
+}
