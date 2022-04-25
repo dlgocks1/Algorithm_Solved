@@ -1,0 +1,29 @@
+class Solution {
+    fun solution(id_list: Array<String>, report: Array<String>, k: Int): IntArray {
+        
+    var hashMapId = HashMap<String, Int>()
+    for(i in id_list.indices){
+        hashMapId.put(id_list[i],0)
+    }
+    var ans = IntArray(id_list.size,{i->0})
+    var strset = mutableSetOf<ArrayList<String>>()
+    for(v in report){
+        var splitstr = v.split(' ')
+        strset.add(splitstr as ArrayList<String>)
+    }
+
+    for (i in strset){
+        hashMapId[i[1]] = hashMapId[i[1]]!! +1
+    }
+    println(hashMapId)
+
+    for (i in 0..id_list.size-1){
+        for(j in strset){
+            if (j[0] == id_list[i] && hashMapId[j[1]]!! >=k){
+                ans[i] +=1
+            }
+        }
+    }
+        return ans
+    }
+}
