@@ -1,0 +1,33 @@
+ans = 0
+def solution(numbers, target):
+    dx = ['+','-']
+    stack = list()
+    
+    def dfs(cnt,sum):
+        global ans
+        if cnt == len(numbers):
+            if sum == target:
+                ans+=1
+            return
+
+        for i in dx:
+            if i == '+':
+                sum += numbers[cnt]
+                stack.append('+')
+                stack.append(numbers[cnt])
+                dfs(cnt+1,sum)
+                sum -= numbers[cnt]
+                stack.pop()
+                stack.pop()
+            else:
+                sum -= numbers[cnt]
+                stack.append('-')
+                stack.append(numbers[cnt])
+                dfs(cnt+1,sum)
+                sum += numbers[cnt]
+                stack.pop()
+                stack.pop()
+
+    dfs(0,0)
+    
+    return ans
