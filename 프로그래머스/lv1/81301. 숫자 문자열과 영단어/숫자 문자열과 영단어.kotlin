@@ -1,0 +1,28 @@
+class Solution {
+    fun solution(s: String): Int {
+
+        var str = ""
+    var slist = listOf("zero","one","two","three","four","five","six","seven","eight","nine")
+    var ans = 0
+    for(i in 0..s.length-1){
+        if (s[i].isDigit()){
+            ans = ans * 10
+            ans = ans + (s[i].toInt()-48)
+        }
+        else{
+            str+=s[i]
+        }
+        if (str in slist){
+            for (j in 0..slist.size-1){
+                if (str == slist[j]){
+                    ans = ans*10
+                    ans += j
+                    break
+                }
+            }
+            str=""
+        }
+    }
+        return ans
+    }
+}
