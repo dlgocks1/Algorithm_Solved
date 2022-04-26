@@ -1,25 +1,3 @@
 class Solution {
-    fun solution(num: Long): Long {
-        var n = num
-        var arr = ArrayList<Int>()
-        var index = Array(10,{i->0})
-        var ans: Long = 0
-        while (n>0){
-            arr.add((n%10).toInt())
-            n/=10
-        }
-        arr.forEach{
-            index[it] +=1
-        }
-
-        print(index.contentToString())
-        index = index.reversedArray()
-        index.mapIndexed{index, i ->
-            for(j in 0..i-1){
-                ans *= 10
-                ans += 9-index
-            }
-        }
-        return ans
-    }
+    fun solution(num: Long): Long = String(num.toString().toCharArray().sortedArrayDescending()).toLong()
 }
