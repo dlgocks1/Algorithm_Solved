@@ -1,0 +1,12 @@
+import java.lang.Math.max
+import java.lang.Math.min
+
+class Solution {
+    fun solution(a: Int, b: Int): Long {
+        var sum : Long =0
+        for(i in min(a,b)..max(b,a)){
+            sum+=i
+        }
+        return sum
+    }
+}
