@@ -1,0 +1,16 @@
+class Solution {
+    fun solution(arr: IntArray, divisor: Int): IntArray {
+        var ans = ArrayList<Int>()
+        arr.map{
+            if (it%divisor==0){
+                ans.add(it)
+            }
+        }
+        if (ans.size !=0){
+            return ans.sorted().toIntArray()
+        }else{
+            ans.add(-1)
+            return ans.toIntArray()
+        }
+    }
+}
