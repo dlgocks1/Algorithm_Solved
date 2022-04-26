@@ -1,0 +1,6 @@
+import java.lang.Math.sqrt
+import kotlin.math.pow
+
+class Solution {
+    fun solution(n: Long): Long = if(sqrt(n.toDouble()) %1 != 0.0) -1 else (sqrt(n.toDouble())+1).pow(2).toLong()
+}
