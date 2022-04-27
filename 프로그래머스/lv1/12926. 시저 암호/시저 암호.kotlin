@@ -1,0 +1,22 @@
+class Solution {
+    fun solution(s: String, n: Int): String {
+        var ans = ""
+        for(i in s){
+            if(i == ' '){
+                ans +=" "
+            }
+            else if( 97<=i.toInt() && i.toInt() <=122){//소문자
+                ans += when((i+n).toInt()>122){
+                    true -> ((i+n).toInt()%122 + 96).toChar()
+                    else -> (i+n).toString()
+                }
+            }else{
+                ans += when((i+n).toInt()>90){
+                    true -> ((i+n).toInt()%90 + 64).toChar()
+                    else -> (i+n).toString()
+                }
+            }
+        }
+        return ans
+    }
+}
