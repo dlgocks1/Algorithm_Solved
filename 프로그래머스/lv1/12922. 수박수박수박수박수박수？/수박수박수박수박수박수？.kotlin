@@ -1,0 +1,15 @@
+class Solution {
+    fun solution(n: Int): String {
+        var flag = 1
+        var ans = ""
+        for(i in 0..n-1){
+            if(flag==1){
+                ans += "수"
+            }else{
+                ans +="박"
+            }
+            flag *=-1
+        }
+        return ans
+    }
+}
