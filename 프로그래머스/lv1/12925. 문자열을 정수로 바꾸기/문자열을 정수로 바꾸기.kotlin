@@ -1,0 +1,18 @@
+class Solution {
+    fun solution(s: String): Int {
+        var ans = 0
+        var pm = 1
+        for (i in s){
+            if(!i.isDigit()){
+                  pm = when(i){
+                      '+' -> 1
+                      else -> -1
+                  }
+            }else{
+                ans*=10
+                ans+= (i-48).toInt()
+            }
+        }
+        return ans*pm
+    }
+}
