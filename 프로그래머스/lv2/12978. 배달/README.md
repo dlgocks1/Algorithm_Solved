@@ -1,10 +1,10 @@
 # [level 2] 배달 - 12978 
 
-[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12978?language=python3) 
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12978?language=kotlin) 
 
 ### 성능 요약
 
-메모리: 10.2 MB, 시간: 0.13 ms
+메모리: 64.1 MB, 시간: 1.04 ms
 
 ### 구분
 
