@@ -1,0 +1,19 @@
+class Solution {
+    fun solution(n: Int): Int {
+        var n = n
+        var threenum = ""
+        while (n>0){
+            threenum += (n%3).toString()
+            n/=3
+        }
+        var temparr = (threenum.toCharArray().reversedArray())
+        var cnt = 1
+        var ans:Long = 0
+        for(i in temparr){
+            ans += (i.toInt()-48) * cnt
+            cnt *= 3
+        }
+
+        return (ans.toInt())
+    }
+}
