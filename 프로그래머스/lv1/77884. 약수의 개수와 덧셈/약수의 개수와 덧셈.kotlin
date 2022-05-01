@@ -1,0 +1,18 @@
+class Solution {
+    fun solution(left: Int, right: Int): Int {
+        fun yakksu(num : Int):Int{
+        var cnt=0
+        for(i in 1..num){
+            if(num%i==0){
+                cnt +=1
+            }
+        }
+        return cnt
+        }
+        var ans = 0
+        for(i in left..right){
+            ans+= if(yakksu(i)%2==0) i else -i
+        }
+        return (ans)
+    }
+}
