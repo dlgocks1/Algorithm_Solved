@@ -1,0 +1,13 @@
+class Solution {
+    fun solution(numbers: IntArray): IntArray {
+        var numberset = mutableSetOf<Int>()
+
+        for(i in 0..numbers.size-1){
+            for (j in i+1..numbers.size-1){
+                numberset.add(numbers[i]+numbers[j])
+            }
+        }
+        var ans = numberset.toIntArray().sortedArray()
+        return (ans)    
+    }
+}
