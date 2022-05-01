@@ -1,0 +1,15 @@
+import java.lang.Math.max
+import java.lang.Math.min
+
+class Solution {
+    fun solution(sizes: Array<IntArray>): Int {
+        var maxx = 0
+        var maxy = 0
+        sizes.forEach {
+            maxx = max(max(it[0],it[1]),maxx)
+            maxy = max(min(it[0],it[1]),maxy)
+        }
+
+        return (maxy*maxx)
+    }
+}
