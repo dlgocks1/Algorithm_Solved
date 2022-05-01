@@ -1,0 +1,30 @@
+class Solution {
+    fun solution(answers: IntArray): IntArray {
+        var supoja = arrayOf<IntArray>(intArrayOf(1,2,3,4,5),intArrayOf(2,1,2,3,2,4,2,5),intArrayOf(3,3,1,1,2,2,4,4,5,5))
+        var correctnum = Array(3){ _ ->0}
+
+        answers.mapIndexed { index, i ->
+            for(j in 0..2){
+                when(j){
+                    0 -> if(supoja[j][index%5] == i){
+                            correctnum[j] +=1 }
+                    1 -> if(supoja[j][index%8] == i){
+                        correctnum[j] +=1 }
+                    2 -> if(supoja[j][index%10] == i){
+                        correctnum[j] +=1 }
+                }
+            }
+        }
+
+        var result = intArrayOf()
+
+        correctnum.mapIndexed{ index,i->
+            if(i == correctnum.maxOrNull()){
+                result += index+1
+            }
+        }
+
+
+        return (result)
+    }
+}
