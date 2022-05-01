@@ -1,0 +1,12 @@
+class Solution {
+    fun solution(a: Int, b: Int): String {
+        var monthday = intArrayOf(31,29,31,30,31,30,31,31,30,31,30,31)
+        var yoil = arrayOf("THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED")
+        var sumdays = 0
+        for(i in 0 until a-1){
+            sumdays +=monthday[i]
+        }
+
+        return (yoil[(sumdays+b)%7])
+    }
+}
