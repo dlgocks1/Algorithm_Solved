@@ -4,3 +4,5 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
 **[cksgodl / 백준](https://www.acmicpc.net/user/cksgodl)**
 
 **[sovled.ac](https://solved.ac/problems/level)**
+
+**[Velog Algorithm](https://velog.io/@cksgodl?tag=%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)**
