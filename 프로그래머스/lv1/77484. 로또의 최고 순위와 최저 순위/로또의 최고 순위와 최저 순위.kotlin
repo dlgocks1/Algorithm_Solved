@@ -1,0 +1,29 @@
+class Solution {
+    fun solution(lottos: IntArray, win_nums: IntArray): IntArray {
+        var lottomap = HashMap<Int,Int>()
+    lottomap.put(0,6)
+    lottomap.put(1,6)
+    lottomap.put(2,5)
+    lottomap.put(3,4)
+    lottomap.put(4,3)
+    lottomap.put(5,2)
+    lottomap.put(6,1)
+
+    var result = 0
+    win_nums.forEach {
+        if(lottos.indexOf(it)!=-1){
+            result+=1
+        }
+    }
+
+    var resultgood = 0
+    lottos.forEach {
+        if(it==0){
+            resultgood+=1
+        }
+    }
+
+    var ans = intArrayOf(lottomap[resultgood+result]!!,lottomap[result]!!)
+    return (ans)
+    }
+}
