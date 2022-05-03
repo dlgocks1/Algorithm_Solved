@@ -1,0 +1,17 @@
+class Solution {
+    fun solution(arr1: Array<IntArray>, arr2: Array<IntArray>): Array<IntArray> {
+        var m = arr1.size
+    var n = arr2[0].size
+    var mulsize = arr2.size
+    var ans = Array<IntArray>(m){ IntArray(n){i->0} }
+
+    for (i in 0 until m) {
+        for(j in 0 until n){
+            for(k in 0 until mulsize){
+                ans[i][j] += arr1[i][k] * arr2[k][j]
+            }
+        }
+    }
+    return ans
+    }
+}
