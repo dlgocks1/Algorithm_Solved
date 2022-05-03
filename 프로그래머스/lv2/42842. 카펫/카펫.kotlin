@@ -1,0 +1,16 @@
+class Solution {
+    fun solution(brown: Int, yellow: Int): IntArray {
+        var x = 0
+        var y = 0
+        for (i in 3 until 2500) {
+            for (j in 3 until 2000000) {
+                if((i-2) * (j-2) == yellow && (i*j-yellow) == brown){
+                    x = i
+                    y = j
+                    break
+                }
+            }
+        }
+        return intArrayOf(x,y)
+    }
+}
