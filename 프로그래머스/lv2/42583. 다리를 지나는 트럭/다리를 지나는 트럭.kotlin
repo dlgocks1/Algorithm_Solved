@@ -1,0 +1,31 @@
+import java.util.*
+
+class Solution {
+    fun solution(bridge_length: Int, weight: Int, truck_weights: IntArray): Int {
+        var q = LinkedList<Pair<Int,Int>>()//time,weight
+    var time = 0
+    var cnt = 0
+    var totalweight = 0
+    q.offer(Pair(0,truck_weights[0]))
+    totalweight += truck_weights[0]
+
+    while(!q.isEmpty()){
+        time+=1
+        for(i in 0 until q.size) {
+            q[i] = Pair(q[i].first.plus(1),q[i].second)
+        }
+
+        if(q[0].first>bridge_length){
+            totalweight = totalweight - q[0].second
+            q.pop()
+        }
+
+        if(cnt <truck_weights.size-1 && truck_weights[cnt+1]+totalweight<=weight){
+            cnt+=1
+            q.offer(Pair(1,truck_weights[cnt]))
+            totalweight += truck_weights[cnt]
+        }
+    }
+    return time
+    }
+}
