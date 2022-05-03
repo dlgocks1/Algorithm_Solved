@@ -1,0 +1,28 @@
+class Solution {
+    fun solution(nums: IntArray): Int {
+        var sosu = Array<Boolean>(3000) { i -> true }
+        sosu[0] = false
+        sosu[1] = false
+
+        for(i in 2 until sosu.size){
+            if(!sosu[i]) continue
+            var j = i*2
+            while(j < sosu.size){
+                sosu[j] = false
+                j+=i
+            }
+        }
+
+        var ans = 0
+        for(i in 0 until nums.size){
+            for(j in i+1 until nums.size){
+                for(k in j+1 until nums.size){
+                   if(sosu[nums[i]+nums[j]+nums[k]]) {
+                       ans+=1
+                   }
+                }
+            }
+        }
+        return (ans)
+    }
+}
