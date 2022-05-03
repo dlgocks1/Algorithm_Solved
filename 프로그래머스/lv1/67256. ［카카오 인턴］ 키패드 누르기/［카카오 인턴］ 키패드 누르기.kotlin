@@ -1,0 +1,56 @@
+import java.lang.Math.abs
+
+
+class Solution {
+    fun solution(numbers: IntArray, hand: String): String {
+        var left = 10
+    var right = 12
+
+    var lefthandsnum = arrayOf(1, 4, 7)
+    var righthandsnum = arrayOf(3, 6, 9)
+
+    var ans = ""
+    numbers.forEach {
+        var num =if (it == 0) 11 else it
+        if (it in lefthandsnum) {
+            ans += "L"
+            left=num
+        } else if (it in righthandsnum) {
+            ans += "R"
+            right=num
+        } else {
+            var leftdist = if(abs(left-num)%3 ==0) {
+                abs(left-num)/3
+            }else {
+                abs(left-num)/3+ abs(left-num)%3
+            }
+            var rightdist = if(abs(right-num)%3 ==0) {
+                abs(right-num)/3
+            }else {
+                abs(right-num)/3 +abs(right-num)%3
+            }
+            println("num : $num, leftdist: $leftdist, rightdist : $rightdist")
+            if(leftdist==rightdist){
+                if (hand == "right") {
+                    ans += "R"
+                    right=num
+                } else {
+                    ans += "L"
+                    left=num
+                }
+            }else{
+                if (leftdist < rightdist) {
+                    ans += "L"
+                    left=num
+                } else {
+                    ans += "R"
+                    right=num
+                }
+            }
+        }
+            println("left $left,right $right")
+        println()
+    }
+    return (ans)
+    }
+}
