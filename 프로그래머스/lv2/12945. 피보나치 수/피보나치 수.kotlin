@@ -1,0 +1,12 @@
+class Solution {
+    fun solution(n: Int): Int {
+       var dp = arrayOf<Int>()
+        dp += 0
+        dp += 1
+        for(i in 2..n){
+            dp += (dp[i-1] + dp[i-2])%1234567
+        }
+        return (dp[n])
+
+    }
+}
