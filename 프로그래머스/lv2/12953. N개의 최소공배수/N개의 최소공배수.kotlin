@@ -1,0 +1,19 @@
+class Solution {
+    fun solution(arr: IntArray): Int {
+        var nums = arr.maxOrNull()
+    var flag = true
+    var ans = 1
+    while (true){
+        flag = true
+        for(i in arr){
+            if(ans%i!=0){
+                flag =false
+                break
+            }
+        }
+        if(flag) break
+        ans+=1
+    }
+    return (ans)
+    }
+}
