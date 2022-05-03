@@ -1,0 +1,11 @@
+class Solution {
+    fun solution(citations: IntArray): Int {
+    citations.sortedArrayDescending().mapIndexed{index, i ->  
+        if(i <= index){
+            return index
+        }
+    }
+    return citations.size
+
+    }
+}
