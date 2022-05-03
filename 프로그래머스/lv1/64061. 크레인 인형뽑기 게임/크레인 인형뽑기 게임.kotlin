@@ -1,0 +1,26 @@
+import java.util.*
+
+class Solution {
+    fun solution(board: Array<IntArray>, moves: IntArray): Int {
+        var stack = Stack<Int>()
+    var width = board[0].size
+    var height = board.size
+    var ans = 0
+
+    for(i in moves){
+        for(y in 0 until height){
+            if( board[y][i-1]!=0){
+                if(stack.isNotEmpty() && stack.lastElement() == board[y][i-1]){
+                    stack.pop()
+                    ans+=2
+                }else{
+                    stack.push(board[y][i-1])
+                }
+                board[y][i-1] = 0
+                break
+            }
+        }
+    }
+    return (ans)
+    }
+}
