@@ -1,0 +1,73 @@
+class Solution {
+    fun solution(new_id: String): String {
+        var tmunja = arrayOf('~','!','@','#','\\','$','%','^','&','*','(',')','=','+','[',
+        '{',']','}',':','?',',','<','>','/')
+
+        //1
+        var new_id = (new_id.toLowerCase())
+
+        //2
+        var temp = new_id.toCharArray()
+        var temp2 = charArrayOf()
+        for(i in temp){
+            if(i in tmunja){
+                continue
+            }
+            temp2 +=i
+        }
+
+        //3
+        println("3 ${temp2.contentToString()}")
+        temp = charArrayOf()
+        if(!temp2.isEmpty()){
+            for(i in temp2.indices){
+                if(i+1 < temp2.size){
+                    if(temp2[i]=='.' && temp2[i+1]=='.'){
+                        continue
+                    }
+                }
+                temp += temp2[i]
+            }
+        }
+        println("4 ${temp.contentToString()}")
+
+        // 4
+    if(temp2.isNotEmpty()) {
+        if(temp.lastIndex>=1){
+            if (temp[0] == '.') {
+                temp = temp.slice(1..temp.lastIndex).toCharArray()
+            }
+            if (temp[temp.lastIndex] == '.') {
+                temp = temp.slice(0..temp.lastIndex - 1).toCharArray()
+            }
+        }else{
+            if (temp[0] == '.'){
+                temp = charArrayOf()
+            }
+        }
+    }
+        // 5
+        if(temp.isEmpty()){
+            temp = charArrayOf('a')
+        }
+
+        // 6
+        if(temp.size>=15){
+            temp = temp.slice(0..14).toCharArray()
+        }
+        if(temp[temp.lastIndex]=='.'){
+            temp = temp.slice(0 .. temp.lastIndex-1).toCharArray()
+        }
+
+        // 7
+        while(temp.size<=2){
+            temp+=temp[temp.lastIndex]
+        }
+
+        var s =""
+        temp.forEach {
+            s += it
+        }
+        return s
+    }
+}
