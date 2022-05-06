@@ -1,0 +1,21 @@
+class Solution {
+    fun solution(s: String): String {
+        var ans = ""
+
+        s.split(" ").forEach {
+        var temp = it.lowercase().trim().toCharArray()
+        println(temp)
+        if(it != "") {
+            if (it[0].isDigit()) {
+            } else {
+                temp[0] = temp[0].uppercaseChar()
+            }
+            ans += temp.concatToString() + ' '
+        }else{
+            ans += " "
+        }
+    }
+        return (ans.subSequence(0,ans.lastIndex).toString())
+
+    }
+}
