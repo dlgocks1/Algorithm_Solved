@@ -1,0 +1,72 @@
+import java.util.*
+class Solution {
+    fun solution(expression: String): Long {
+         var exp = charArrayOf('-', '*', '+')
+    var stacknum = ArrayList<Long>()
+    var stackexp = ArrayList<Char>()
+    expression.split('-').map {
+        it.split('*').map {
+            it.split('+').map {
+                stacknum.add(it.toLong())
+            }
+        }
+    }
+    expression.map {
+        if (!it.isDigit()) {
+            stackexp.add(it)
+        }
+    }
+//    println(stacknum)
+//    println(stackexp)
+
+    var stack = arrayOf<CharArray>()
+    var isvisited = booleanArrayOf(false, false, false)
+    fun makePermutation(r: Int, temp: CharArray, current: Int, isvisited: BooleanArray) {
+        if (r == current) {
+            var temp2 = charArrayOf()
+            for(i in temp){
+                temp2 += i
+            }
+            stack+=(temp2)
+        } else {
+            for (i in 0 until exp.size) {
+                if (!isvisited[i]) {
+                    isvisited[i] = true
+                    temp[current] = exp.get(i)
+                    makePermutation(r, temp, current + 1, isvisited)
+                    isvisited[i] = false
+                }
+            }
+        }
+    }
+
+    var temp = CharArray(3)
+    makePermutation(3, temp, 0, isvisited)
+    println(stack.contentDeepToString())
+
+    var ans : Long = 0
+
+    for (i in stack) {
+        var stacknum2 = ArrayList(stacknum)
+        var stackexp2 = ArrayList(stackexp)
+        for(cnt in i){
+            var j = 0
+            while (j <= stackexp2.lastIndex) {
+                if (stackexp2[j] == cnt) {
+                    when (stackexp2[j]) {
+                        '-' -> stacknum2[j] = stacknum2[j] - stacknum2[j + 1]
+                        '+' -> stacknum2[j] = stacknum2[j] + stacknum2[j + 1]
+                        else -> stacknum2[j] = stacknum2[j] * stacknum2[j + 1]
+                    }
+                    stacknum2.removeAt(j + 1)
+                    stackexp2.removeAt(j)
+                    j=-1
+                }
+                j+=1
+            }
+        }
+        ans = Math.max(Math.abs(stacknum2.maxOrNull()!!),ans)
+    }
+    return (ans.toLong())
+    }
+}
