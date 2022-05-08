@@ -1,0 +1,9 @@
+def solution(s):
+    s = s.split(' ')
+
+    minnum = 10**9
+    maxnum = -10**9
+    for i in s:
+        maxnum = max(maxnum,int(i))
+        minnum = min(minnum,int(i))
+    return (str(minnum)+" "+str(maxnum))
