@@ -1,0 +1,24 @@
+class Solution {
+    fun solution(s: String): IntArray {
+        var strset = s.replace("{","").replace("}","")
+
+    var ans = intArrayOf()
+    var hashset = HashMap<Int,Int>()
+    for(i in strset.split(",")){
+        ans += i.toInt()
+    }
+    ans.mapIndexed { index, i ->
+        if(i in hashset.keys){
+            hashset.put(i, hashset.get(i)!!.toInt()+1)
+        }else{
+            hashset[i] = 1
+        }
+    }
+    ans = intArrayOf()
+    for (i in hashset.toList().sortedWith(compareBy({-it.second}))){
+        ans += i.first
+    }
+    return (ans)
+
+    }
+}
