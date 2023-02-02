@@ -1,4 +1,3 @@
-
 import java.io.*
 
 private val reader = BufferedReader(InputStreamReader(System.`in`))
@@ -9,8 +8,8 @@ fun main() {
     var dp = Array(N) { IntArray(M) { 1 } }
     // K == 3일 때
 
-    val targetY = if(K == 0) 0 else K / M
-    val targetX = if(K == 0) 0 else K % M - 1
+    val targetY = if(K == 0) 0 else (K-1) / M
+    val targetX = if(K == 0) 0 else (K-1) % M
 
 //    println(targetX)
 //    println(targetY)
