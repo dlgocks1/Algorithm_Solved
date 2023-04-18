@@ -1,10 +1,10 @@
 # [level 2] 배달 - 12978 
 
-[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12978?language=kotlin) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12978) 
 
 ### 성능 요약
 
-메모리: 64.1 MB, 시간: 1.04 ms
+메모리: 60.5 MB, 시간: 4.03 ms
 
 ### 구분
 
@@ -12,7 +12,7 @@
 
 ### 채점결과
 
-<br/>정확성: 100.0<br/>합계: 100.0 / 100.0
+Empty
 
 ### 문제 설명
 
