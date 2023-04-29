@@ -1,0 +1,4 @@
+-- 코드를 입력하세요
+SELECT Count(*) 
+FROM USER_INFO 
+WHERE AGE >=20 And AGE <= 29 And YEAR(JOINED) = 2021
